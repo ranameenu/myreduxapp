@@ -1,42 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Users = () => {
-  const [Users, setUsers] = useState([
-    {
-      id: 1,
-      fName: 'meenu',
-      lName: 'rana',
-      age: '27',
-    },
-    {
-      id: 2,
-      fName: 'teena',
-      lName: 'rana',
-      age: '25',
-    },
-    {
-      id: 3,
-      fName: 'reena',
-      lName: 'rana',
-      age: '29',
-    },
-  ]);
+  const [users, setUsers] = useState(null);
+
+  const getUsers = async () => {
+    const res = await axios.get(`http://localhost:5000/users`);
+    setUsers(res.data);
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
   return (
     <div>
       <h1>Users</h1>
       <table className="table table-success table-striped">
         <thead>
           <tr>
-            <td>Id</td>
-            <td>fName</td>
-            <td>lName</td>
-            <td>age</td>
-            <td>?</td>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {Users !== null ? (
-            Users.map((user, index) => (
+          {users !== null ? (
+            users.map((user, index) => (
               <tr key={user.id}>
                 <td>{index + 1}</td>
                 <td>{user.fName}</td>
@@ -50,7 +40,9 @@ const Users = () => {
               </tr>
             ))
           ) : (
-            <h4>No User Found</h4>
+            <tr>
+              <td>No User Found</td>
+            </tr>
           )}
         </tbody>
       </table>

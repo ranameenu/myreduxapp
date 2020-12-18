@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fName": "meenu",
+      "lName": "rana",
+      "age": 27
+    },
+    {
+      "id": 2,
+      "fName": "teena",
+      "lName": "rana",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "fName": "reena",
+      "lName": "rana",
+      "age": 29
+    }
+  ]
+}
