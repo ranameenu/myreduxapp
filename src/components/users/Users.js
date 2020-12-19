@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import User from './User';
 import axios from 'axios';
 
 const Users = () => {
@@ -26,19 +27,7 @@ const Users = () => {
         </thead>
         <tbody>
           {users !== null ? (
-            users.map((user, index) => (
-              <tr key={user.id}>
-                <td>{index + 1}</td>
-                <td>{user.fName}</td>
-                <td>{user.lName}</td>
-                <td>{user.age}</td>
-                <td>
-                  <a href="/#" className="btn btn-danger btn-sm">
-                    Delete
-                  </a>
-                </td>
-              </tr>
-            ))
+            users.map((user) => <User key={user.id} user={user} />)
           ) : (
             <tr>
               <td>No User Found</td>
