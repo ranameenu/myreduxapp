@@ -9,9 +9,7 @@ const User = (props) => {
       <td>{lName}</td>
       <td>{age}</td>
       <td>
-        <a href="/#" className="btn btn-danger btn-sm">
-          Delete
-        </a>
+        <a className="btn btn-danger btn-sm">Delete</a>
       </td>
     </tr>
   );

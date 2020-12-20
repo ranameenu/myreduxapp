@@ -14,7 +14,14 @@ const Users = () => {
   }, []);
   return (
     <div>
-      <h1>Users</h1>
+      <div className="d-flex justify-content-between">
+        <h1>All Users</h1>
+        <div className="mt-2">
+          <a href="/add" className="btn btn-primary">
+            Add User
+          </a>
+        </div>
+      </div>
       <table className="table table-success table-striped">
         <thead>
           <tr>
