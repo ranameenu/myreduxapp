@@ -6,6 +6,7 @@ const User = (props) => {
   const onClick = () => {
     props.onDelete(id);
   };
+
   return (
     <tr>
       <td>{id}</td>
@@ -13,11 +14,12 @@ const User = (props) => {
       <td>{lName}</td>
       <td>{age}</td>
       <td>
-        <a className="btn btn-danger btn-sm">
-          <button className="btn btn-danger btn-sm" onClick={onClick}>
-            Delete
-          </button>
-        </a>
+        <a href="/edituser" className="href"></a>
+        <button className="btn btn-secondary btn-sm mr-2">Update</button>
+
+        <button className="btn btn-danger btn-sm" onClick={onClick}>
+          Delete
+        </button>
       </td>
     </tr>
   );

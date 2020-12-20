@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import AddUser from './components/users/AddUser';
+import EditUser from './components/users/EditUser';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Users} />
           <Route exact path="/add" component={AddUser} />
+          <Route exact path="/edituser/:id" component={EditUser} />
         </Switch>
       </div>
     </Router>
