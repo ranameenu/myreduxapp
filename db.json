@@ -1,40 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
       "fName": "meenu",
       "lName": "rana",
-      "age": 27
+      "age": "27",
+      "id": 1
     },
     {
-      "id": 2,
+      "fName": "shri",
+      "lName": "rana",
+      "age": "55",
+      "id": 2
+    },
+    {
       "fName": "teena",
       "lName": "rana",
-      "age": 25
+      "age": "30",
+      "id": 3
     },
     {
-      "id": 3,
       "fName": "reena",
       "lName": "rana",
-      "age": 29
-    },
-    {
-      "fName": "rakesh",
-      "lName": "Ranakawat",
-      "age": "23",
+      "age": "25",
       "id": 4
-    },
-    {
-      "fName": "rakesh",
-      "lName": "Ranakawat",
-      "age": "23",
-      "id": 5
-    },
-    {
-      "fName": "rakesh",
-      "lName": "nalayk",
-      "age": "50",
-      "id": 6
     }
   ]
 }
