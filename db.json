@@ -1,3 +1,28 @@
 {
-  "users": []
+  "users": [
+    {
+      "fName": "meenu",
+      "lName": "rana",
+      "age": "27",
+      "id": 1
+    },
+    {
+      "fName": "rakesh ",
+      "lName": "rankawat",
+      "age": "28",
+      "id": 2
+    },
+    {
+      "fName": "teena",
+      "lName": "rana",
+      "age": "29",
+      "id": 3
+    },
+    {
+      "fName": "reena",
+      "lName": "rana",
+      "age": "25",
+      "id": 4
+    }
+  ]
 }

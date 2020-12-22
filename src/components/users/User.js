@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const User = (props) => {
   const { id, fName, lName, age } = props.user;
@@ -14,9 +15,9 @@ const User = (props) => {
       <td>{lName}</td>
       <td>{age}</td>
       <td>
-        <a href="/edituser" className="href"></a>
-        <button className="btn btn-secondary btn-sm mr-2">Update</button>
-
+        <Link to={`/edit/${id}`} className="btn btn-secondary btn-sm">
+          Edit
+        </Link>{' '}
         <button className="btn btn-danger btn-sm" onClick={onClick}>
           Delete
         </button>
