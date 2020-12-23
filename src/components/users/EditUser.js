@@ -31,10 +31,12 @@ const EditUser = (props) => {
       lName: lNameRef.current.value,
       age: ageRef.current.value,
     };
+
     await axios.put(
       `http://localhost:5000/users/${props.match.params.id}`,
       updatedUser
     );
+    props.history.push('/');
   };
 
   return (
@@ -79,7 +81,7 @@ const EditUser = (props) => {
             className="form-control"
             placeholder="age"
             defaultValue={age}
-            value={ageRef}
+            ref={ageRef}
           />
         </div>
         <button
