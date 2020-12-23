@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 const EditUser = (props) => {
   const [fName, setfName] = useState('');
   const [lName, setlName] = useState('');
   const [age, setage] = useState('');
+
+  // create ref variable to update
+  const fNameRef = useRef();
+  const lNameRef = useRef();
+  const ageRef = useRef();
 
   const getUser = async () => {
     const res = await axios.get(
@@ -19,6 +24,19 @@ const EditUser = (props) => {
     getUser();
   }, []);
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const updatedUser = {
+      fName: fNameRef.current.value,
+      lName: lNameRef.current.value,
+      age: ageRef.current.value,
+    };
+    await axios.put(
+      `http://localhost:5000/users/${props.match.params.id}`,
+      updatedUser
+    );
+  };
+
   return (
     <div className="w-50">
       <div className="d-flex justify-content-between">
@@ -30,7 +48,7 @@ const EditUser = (props) => {
         </div>
       </div>
 
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-group mt-3">
           <label htmlFor="fName">First Name</label>
           <input
@@ -39,6 +57,7 @@ const EditUser = (props) => {
             className="form-control"
             placeholder="Enter first name"
             defaultValue={fName}
+            ref={fNameRef}
           />
         </div>
         <div className="form-group mt-3">
@@ -49,6 +68,7 @@ const EditUser = (props) => {
             className="form-control"
             placeholder="Enter last name"
             defaultValue={lName}
+            ref={lNameRef}
           />
         </div>
         <div className="form-group mt-3">
@@ -59,9 +79,14 @@ const EditUser = (props) => {
             className="form-control"
             placeholder="age"
             defaultValue={age}
+            value={ageRef}
           />
         </div>
-        <button type="submit" className="btn btn-sm btn-success mt-4">
+        <button
+          type="submit"
+          value="update"
+          className="btn btn-sm btn-success mt-4"
+        >
           Update
         </button>
       </form>
