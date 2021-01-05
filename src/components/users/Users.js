@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import User from './User';
 import axios from 'axios';
+import { getUsers } from '../../actions/userAction';
 
-const Users = () => {
-  const [users, setUsers] = useState(null);
-
-  const getUsers = async () => {
-    const res = await axios.get(`http://localhost:5000/users`);
-    setUsers(res.data);
-  };
+const Users = ({ users, getUsers }) => {
   useEffect(() => {
     getUsers();
   }, []);
 
-  // delete user
-  const onDelete = async (id) => {
-    let copyUsers = users;
-    copyUsers = copyUsers.filter((user) => user.id !== id);
-    setUsers(copyUsers);
-    await axios.delete(`http://localhost:5000/users/${id}`);
-  };
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -30,7 +19,7 @@ const Users = () => {
           </a>
         </div>
       </div>
-      <table className="table table-success table-striped">
+      <table className="table table-striped mt-3">
         <thead>
           <tr>
             <th>Id</th>
@@ -42,9 +31,7 @@ const Users = () => {
         </thead>
         <tbody>
           {users !== null ? (
-            users.map((user) => (
-              <User key={user.id} user={user} onDelete={onDelete} />
-            ))
+            users.map((user) => <User key={user.id} user={user} />)
           ) : (
             <tr>
               <td>No User Found</td>
