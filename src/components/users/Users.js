@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import User from './User';
-import axios from 'axios';
 import { getUsers } from '../../actions/userAction';
 
 const Users = ({ users, getUsers }) => {
@@ -43,4 +42,8 @@ const Users = ({ users, getUsers }) => {
   );
 };
 
-export default Users;
+const mapStateToProps = (state) => ({
+  users: state.user.users,
+});
+
+export default connect(mapStateToProps, { getUsers })(Users);
