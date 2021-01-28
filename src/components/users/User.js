@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteUser } from '../../actions/userAction';
 
-const User = (props) => {
-  const { id, fName, lName, age } = props.user;
+const User = ({ user, deleteUser }) => {
+  const { id, fName, lName, age } = user;
 
   const onClick = () => {
-    props.onDelete(id);
+    deleteUser(id);
   };
 
   return (
@@ -26,4 +28,4 @@ const User = (props) => {
   );
 };
 
-export default User;
+export default connect(null, { deleteUser })(User);
